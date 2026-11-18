@@ -17,6 +17,7 @@ import {
 const STORAGE_KEY = "student_tasks";
 
 type Priority = "High" | "Medium" | "Low";
+type Category = "Study" | "Assignment" | "Project" | "Personal";
 
 export default function AddTaskScreen() {
   const router = useRouter();
@@ -26,6 +27,7 @@ export default function AddTaskScreen() {
   const [dueDate, setDueDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [priority, setPriority] = useState<Priority>("Medium");
+  const [category, setCategory] = useState<Category>("Study");
 
   const handleAddTask = async () => {
     if (title.trim() === "") {
@@ -44,6 +46,7 @@ export default function AddTaskScreen() {
         completed: false,
         dueDate: dueDate.toISOString(),
         priority,
+        category,
       };
 
       tasks.unshift(newTask);
@@ -150,6 +153,32 @@ export default function AddTaskScreen() {
             </Text>
           </Pressable>
         ))}
+      </View>
+
+      <Text style={styles.label}>Category</Text>
+
+      <View style={styles.categoryContainer}>
+        {(["Study", "Assignment", "Project", "Personal"] as Category[]).map(
+          (item) => (
+            <Pressable
+              key={item}
+              style={[
+                styles.categoryButton,
+                category === item && styles.selectedCategory,
+              ]}
+              onPress={() => setCategory(item)}
+            >
+              <Text
+                style={[
+                  styles.categoryText,
+                  category === item && styles.selectedCategoryText,
+                ]}
+              >
+                {item}
+              </Text>
+            </Pressable>
+          )
+        )}
       </View>
 
       <Pressable
@@ -266,6 +295,30 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   selectedPriorityText: {
+    color: "#FFFFFF",
+  },
+  categoryContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+  },
+  categoryButton: {
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#DDD6FE",
+  },
+  selectedCategory: {
+    backgroundColor: "#6D28D9",
+    borderColor: "#6D28D9",
+  },
+  categoryText: {
+    color: "#4C1D95",
+    fontWeight: "bold",
+  },
+  selectedCategoryText: {
     color: "#FFFFFF",
   },
   addButton: {

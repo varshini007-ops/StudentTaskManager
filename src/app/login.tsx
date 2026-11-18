@@ -2,13 +2,14 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    Alert,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
+
+import CustomInput from "../components/ui/CustomInput";
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -18,10 +19,7 @@ export default function LoginScreen() {
 
   const handleLogin = () => {
     if (email.trim() === "" || password.trim() === "") {
-      Alert.alert(
-        "Error",
-        "Please enter email and password"
-      );
+      Alert.alert("Error", "Please enter email and password");
     } else {
       router.replace("/home");
     }
@@ -39,23 +37,22 @@ export default function LoginScreen() {
 
       <Text style={styles.label}>Email Address</Text>
 
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Enter your email"
-        keyboardType="email-address"
-        autoCapitalize="none"
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
       />
 
       <Text style={styles.label}>Password</Text>
 
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Enter your password"
-        secureTextEntry={true}
         value={password}
         onChangeText={setPassword}
+        secureTextEntry={true}
+        autoCapitalize="none"
       />
 
       <Pressable
@@ -114,15 +111,6 @@ const styles = StyleSheet.create({
     color: "#4C1D95",
     marginBottom: 8,
     marginTop: 15,
-  },
-
-  input: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 15,
-    borderWidth: 1,
-    borderColor: "#DDD6FE",
   },
 
   button: {

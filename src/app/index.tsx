@@ -1,12 +1,14 @@
 
 import { useRouter } from "expo-router";
 import {
-  Pressable,
+  Image,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from "react-native";
+
+import CustomButton from "../components/ui/CustomButton";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -16,7 +18,11 @@ export default function HomeScreen() {
       <StatusBar barStyle="dark-content" />
 
       <View style={styles.circle}>
-        <Text style={styles.icon}>📚</Text>
+        <Image
+          source={require("../../assets/images/icon.png")}
+          style={styles.image}
+          resizeMode="contain"
+        />
       </View>
 
       <Text style={styles.title}>
@@ -39,14 +45,12 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <Pressable
-        style={styles.button}
-        onPress={() => router.push("/login")}
-      >
-        <Text style={styles.buttonText}>
-          Get Started →
-        </Text>
-      </Pressable>
+      <View style={styles.buttonContainer}>
+        <CustomButton
+          title="Get Started →"
+          onPress={() => router.push("/login")}
+        />
+      </View>
 
       <Text style={styles.footer}>
         Learn • Plan • Achieve
@@ -74,8 +78,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
 
-  icon: {
-    fontSize: 65,
+  image: {
+    width: 90,
+    height: 90,
   },
 
   title: {
@@ -115,19 +120,9 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
 
-  button: {
-    backgroundColor: "#6D28D9",
-    padding: 17,
-    borderRadius: 14,
+  buttonContainer: {
     width: "100%",
-    alignItems: "center",
     marginTop: 30,
-  },
-
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 17,
-    fontWeight: "bold",
   },
 
   footer: {

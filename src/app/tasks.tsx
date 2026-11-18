@@ -3,14 +3,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    Alert,
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 
 type Task = {
@@ -20,6 +20,7 @@ type Task = {
   completed: boolean;
   dueDate?: string;
   priority?: "High" | "Medium" | "Low";
+  category?: "Study" | "Assignment" | "Project" | "Personal";
 };
 
 type FilterType = "All" | "Pending" | "Completed";
@@ -118,7 +119,7 @@ export default function TasksScreen() {
   const filteredTasks = tasks.filter((item) => {
     const matchesSearch =
       item.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchText.toLowerCase());
+      (item.description || "").toLowerCase().includes(searchText.toLowerCase());
 
     const matchesFilter =
       selectedFilter === "All" ||
@@ -246,6 +247,12 @@ export default function TasksScreen() {
                     ]}
                   >
                     ● {item.priority} Priority
+                  </Text>
+                )}
+
+                {item.category && (
+                  <Text style={styles.category}>
+                    📁 Category: {item.category}
                   </Text>
                 )}
               </View>
@@ -399,6 +406,12 @@ const styles = StyleSheet.create({
   },
   priority: {
     fontSize: 13,
+    fontWeight: "bold",
+    marginTop: 6,
+  },
+  category: {
+    fontSize: 13,
+    color: "#6D28D9",
     fontWeight: "bold",
     marginTop: 6,
   },
