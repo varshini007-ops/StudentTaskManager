@@ -1,25 +1,21 @@
-# Student Task Manager 📱
+# 📱 StudentTaskManager
 
-A mobile application built using **React Native, Expo, and TypeScript** to help students organize and manage their daily academic tasks.
+**A Simple and User-Friendly Mobile To-Do Application**
 
-## 🚀 Project Overview
-
-Student Task Manager allows students to add, view, search, filter, and manage their tasks in one place. It provides a simple interface to track task progress, priorities, and due dates.
+StudentTaskManager is a mobile application developed using **React Native and Expo** to help students organize and manage their daily academic and personal tasks.
 
 ## ✨ Features
 
-- Welcome Screen
-- Login Screen
-- Home Dashboard
-- Add New Tasks
-- View All Tasks
-- Mark Tasks as Completed
-- Delete Tasks
-- Search Tasks
-- Filter Tasks by All, Pending, and Completed
-- Set Task Due Dates
-- Set Task Priorities (High, Medium, Low)
-- Local Data Storage using AsyncStorage
+- **Login Screen** – Basic login form with input validation.
+- **Add Tasks** – Create tasks with title and description.
+- **Due Date** – Select a deadline using a date picker.
+- **Priority Selection** – Set task priority as High, Medium, or Low.
+- **Task Categories** – Organize tasks into Study, Assignment, Project, and Personal.
+- **Delete Tasks** – Remove tasks when they are no longer needed.
+- **Task Completion** – Mark tasks as completed or pending.
+- **Search Tasks** – Find tasks using keywords.
+- **Task Filters** – View All, Pending, and Completed tasks.
+- **Local Storage** – Store task data using AsyncStorage.
 
 ## 🛠️ Technologies Used
 
@@ -28,7 +24,7 @@ Student Task Manager allows students to add, view, search, filter, and manage th
 - TypeScript
 - Expo Router
 - AsyncStorage
-- DateTimePicker
+- React Native DateTimePicker
 
 ## 📂 Project Structure
 
@@ -36,62 +32,67 @@ Student Task Manager allows students to add, view, search, filter, and manage th
 StudentTaskManager/
 │
 ├── src/
-│   └── app/
-│       ├── _layout.tsx
-│       ├── index.tsx
-│       ├── login.tsx
-│       ├── home.tsx
-│       ├── tasks.tsx
-│       └── add-task.tsx
+│   ├── app/
+│   │   ├── index.tsx
+│   │   ├── login.tsx
+│   │   ├── home.tsx
+│   │   ├── tasks.tsx
+│   │   └── add-task.tsx
+│   │
+│   └── components/
+│       └── ui/
+│           ├── CustomButton.tsx
+│           ├── CustomInput.tsx
+│           ├── CustomList.tsx
+│           └── CustomCard.tsx
 │
+├── assets/
 ├── package.json
 └── README.md
 ```
 
-## ⚙️ Installation and Setup
+## 🚀 Installation and Setup
 
-1. Clone the repository:
+**1. Clone the repository**
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/varshini007-ops/StudentTaskManager.git
 ```
 
-2. Navigate to the project folder:
+**2. Navigate to the project folder**
 
 ```bash
 cd StudentTaskManager
 ```
 
-3. Install dependencies:
+**3. Install dependencies**
 
 ```bash
 npm install
 ```
 
-4. Start the Expo development server:
+**4. Start the application**
 
 ```bash
-npx expo start --tunnel
+npx expo start
 ```
 
-5. Scan the QR code using Expo Go to run the application on your mobile device.
+Scan the QR code using Expo Go to run the application on your mobile device.
 
-## 📚 Learning Outcomes
+## 📸 Screenshots
 
-Through this project, I gained practical experience in:
-
-- Mobile application development fundamentals
-- React Native components and styling
-- Screen navigation using Expo Router
-- Mobile UI design
-- State management
-- Local data persistence using AsyncStorage
-- Building and testing mobile applications using Expo
+_Add your application screenshots here._
 
 ## 🎯 Project Objective
 
-To develop a simple and user-friendly mobile application that helps students manage their academic activities efficiently.
+The objective of this project is to develop a mobile To-Do application using React Native, implement reusable UI components, manage screen navigation, validate user inputs, and perform task management operations.
+
+## 👩‍💻 Developer
+
+**Varshini Varatharajan**
+
+GitHub: [varshini007-ops](https://github.com/varshini007-ops)
 
 ---
 
-**Developed as part of Mobile Development Fundamentals.**
+*Built as part of the Mobile Development learning module.*
